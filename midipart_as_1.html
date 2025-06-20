@@ -36,6 +36,12 @@
       border: 1px solid rgba(255, 255, 255, 0.18);
       position: relative;
     }
+    #logo {
+      position: absolute;
+      right: 18px;
+      top: 15px;
+      opacity: 0.65;
+    }
     
     h1 {
       text-align: center;
@@ -353,7 +359,10 @@
     <div id="volume-control" style="visibility: hidden;">
         <span class="prevent-select">Volume</span>
         <input type="range" id="volSlider" min="-24" max="0" step="1" value="-12" style="width: 100px;">
-      </div>
+    </div>
+    <div id="logo">
+        <img src="mp-icon-2.svg" height="60px" />
+    </div>
       <div id="headline">
     <h1 class="prevent-select">🎼 Articulation Splitter</h1>
     <span class="prevent-select subheader">Auto-create midi parts for orchestral articulations in your DAW</span>
