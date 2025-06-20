@@ -746,7 +746,7 @@
     function showRepeatFileWarning(filename) {
         console.log('running warning');
         const warning = document.getElementById("repeatFileWarning");
-        warning.innerHTML = `⚠️ You’ve already loaded <b>${filename}</b> in this session`;
+        warning.innerHTML = `⚠️ You’ve loaded <b>${filename}</b> before in this session`;
         warning.style.display = "block";
     }
     function clearRepeatFileWarning() {
