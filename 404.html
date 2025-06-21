@@ -36,6 +36,26 @@
         h1 {
           font-size: 4rem;
         }
+
+        .banana-spinner {
+  width: 120px;
+  height: 120px;
+  margin: 30px auto;
+  background: url('banana.png') no-repeat center/contain;
+  animation: spin 1.5s linear infinite;
+  filter: hue-rotate(-15deg) contrast(1.1) saturate(0.9);
+}
+
+/* Keyframes for endless spinning */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
     </style>
 </head>
 <body>
@@ -45,42 +65,13 @@
   <div class="quote" id="quote">Loading a fruity excuse...</div>
   <div class="buttons">
     <a href="/">🔙 Back to Safety</a>
-    <a href="#" onclick="randomAction()">🎲 Try Something Weird</a>
+    <a href="#"  onclick="randomAction()">🎲 Don't click here</a>
   </div>
     </div>
 
-    <!-- Modal content -->
-<div class="modal fade" id="welcomeModal" tabindex="-1" aria-labelledby="welcomeModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="welcomeModalLabel">MidiPart.com</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        We will be launching soon with some free tools for composers of orchestral music
-      </div>
-      <div class="modal-footer">
-        <button id="close-button" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
-      </div>
-    </div>
-  </div>
-</div>
+   
 <!-- end body scripts -->
- <script>
-    var enterBtn = document.getElementById('enterBtn');
-    var myModal = document.getElementById('welcomeModal');
-    var closeButton = document.getElementById('close-button');
-
-    enterBtn.focus();
-
-
-    myModal.addEventListener('shown.bs.modal', function () {
-        closeButton.focus();
-    });
-    
- </script>
+ 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
     <script>
     const quotes = [
@@ -94,8 +85,27 @@
     document.getElementById("quote").innerText = quotes[Math.floor(Math.random() * quotes.length)];
 
     function randomAction() {
-      alert("You summoned a minor key kazoo solo. Bravo.");
-    }
+  const chaos = [
+    "🎺 You summoned a minor key kazoo solo. Bravo.",
+    "🪕 A banjo duel broke out in the footer. It’s unresolved.",
+    "🦴 The bassoon refuses to cooperate until it gets a solo.",
+    "🐵 A monkey has entered the MIDI stream. He is not quantized.",
+    "🎹 This app just modulated to a new key and left you behind.",
+    "🥁 Drum roll, please... nope, they dropped the sticks.",
+    "🎧 The playback engine is stuck in a philosophical loop.",
+    "🪗 Accordion detected. Chaos increasing.",
+    "📯 The French horn attempted a coup. It failed. For now.",
+    "🍌 You slipped on a chromatic banana peel.",
+    "🪦 A trill expired of exhaustion.",
+    "🪇 We handed the sync engine a maraca. It got distracted.",
+    "🎼 Your motif was sent to therapy. It returns... changed.",
+    "🧃 All progress has been suspended pending juice box delivery.",
+    "📡 Signal lost. Reconnecting to conductor..."
+  ];
+
+  const message = chaos[Math.floor(Math.random() * chaos.length)];
+  alert(message);
+}
   </script>
 </body>
 </html>
