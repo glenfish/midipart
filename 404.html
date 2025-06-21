@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MidiPart.com: Online Composer Tools</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 98vh; /* Full viewport height */
+        }
+        #logo-container {
+            position: relative;
+            top: -40px;
+        }
+        .byline {
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+            text-align: center;
+            position: relative;
+            top: -12px;
+            letter-spacing: 2px;
+        }
+        #enter-button {
+            margin-top: 0px;
+            
+
+        }
+        .quote {
+          margin: 20px;
+          font-size: 1.5rem;
+        }
+        h1 {
+          font-size: 4rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+       <h1>404: Page Slipped on a Banana</h1>
+  <div class="banana-spinner"></div>
+  <div class="quote" id="quote">Loading a fruity excuse...</div>
+  <div class="buttons">
+    <a href="/">🔙 Back to Safety</a>
+    <a href="#" onclick="randomAction()">🎲 Try Something Weird</a>
+  </div>
+    </div>
+
+    <!-- Modal content -->
+<div class="modal fade" id="welcomeModal" tabindex="-1" aria-labelledby="welcomeModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="welcomeModalLabel">MidiPart.com</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        We will be launching soon with some free tools for composers of orchestral music
+      </div>
+      <div class="modal-footer">
+        <button id="close-button" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end body scripts -->
+ <script>
+    var enterBtn = document.getElementById('enterBtn');
+    var myModal = document.getElementById('welcomeModal');
+    var closeButton = document.getElementById('close-button');
+
+    enterBtn.focus();
+
+
+    myModal.addEventListener('shown.bs.modal', function () {
+        closeButton.focus();
+    });
+    
+ </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+    const quotes = [
+      "This motif modulated itself into another app.",
+      "Your banana wasn't ripe enough for this page.",
+      "This route was marked ad libitum. It wandered off.",
+      "We asked the oboe section. They refused to comment.",
+      "Like a poorly cued entrance, this page missed its moment.",
+      "We traced the error to one bad banana. We’ve since promoted it."
+    ];
+    document.getElementById("quote").innerText = quotes[Math.floor(Math.random() * quotes.length)];
+
+    function randomAction() {
+      alert("You summoned a minor key kazoo solo. Bravo.");
+    }
+  </script>
+</body>
+</html>
