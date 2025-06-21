@@ -61,7 +61,7 @@
 <body>
     <div class="container">
       <div id="logo-container">
-        <img src="mp-icon-2.svg" alt="Logo" class="logo"><div class="byline">USEFUL STUFF FOR COMPOSERS</div>
+        <img src="mp-icon-2.svg" width="340px" alt="Logo" class="logo"><div class="byline">USEFUL STUFF FOR COMPOSERS</div>
     </div>
        <h1>404: Page Slipped on a Banana</h1>
   <div class="banana-spinner"></div>
@@ -109,6 +109,37 @@
   const message = chaos[Math.floor(Math.random() * chaos.length)];
   alert(message);
 }
+  </script>
+  <script>
+    (function consoleEasterEgg() {
+  const egg = [
+    "%c🍌 Console Mode: Composer Debug Activated 🍌",
+    "caution: adjusting harmony levels may result in 🐒-approved dissonance",
+    "type %cplayKazoo()%c to unleash sonic mayhem",
+    "type %cdiagnoseMotif()%c to begin melodic psychoanalysis"
+  ];
+
+  const styleTitle = "color: yellow; font-weight: bold; font-size: 16px;";
+  const styleCmd = "color: cyan;";
+  const styleReset = "color: inherit;";
+
+  console.log(egg[0], styleTitle);
+  console.log(egg[1]);
+  console.log(egg[2], styleCmd, styleReset);
+  console.log(egg[3], styleCmd, styleReset);
+
+  // Mock commands
+  window.playKazoo = () => {
+    console.log("🎺 Initiating kazoo solo in D minor... emotionally unsafe levels detected.");
+    alert("Kazoo overload! You've summoned a choir of sad trombones.");
+  };
+
+  window.diagnoseMotif = () => {
+    console.log("🧠 Analyzing motif... Found unresolved tension from childhood (measure 3).");
+    alert("Motif has been referred to counterpoint therapy.");
+  };
+})();
+
   </script>
 </body>
 </html>
