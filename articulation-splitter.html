@@ -411,10 +411,12 @@ const closeHelp = document.getElementById('closeHelp');
 
 helpButton.addEventListener('click', () => {
   helpPanel.classList.add('open');
+  helpButton.style.display = "none";
 });
 
 closeHelp.addEventListener('click', () => {
   helpPanel.classList.remove('open');
+  helpButton.style.display = "block";
 });
 
 </script>
