@@ -544,6 +544,7 @@ document.addEventListener('click', (e) => {
   const isClickInside = helpPanel.contains(e.target) || helpButton.contains(e.target);
   if (!isClickInside && helpPanel.classList.contains('open')) {
     helpPanel.classList.remove('open');
+    helpButton.style.display = "block";
   }
 });
 
