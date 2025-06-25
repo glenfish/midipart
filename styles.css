@@ -57,7 +57,7 @@
      text-align: center;
      margin-bottom: 2rem;
      padding: 2rem;
-     border: 2px dashed #cbd5e0;
+     border: 8px dotted #cbd5e0;
      border-radius: 15px;
      transition: all 0.3s ease;
      background: linear-gradient(45deg, #f7fafc, #edf2f7);
