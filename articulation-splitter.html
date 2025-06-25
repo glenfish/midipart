@@ -24,9 +24,63 @@
   color: inherit;
 }
 
+#helpButton {
+  position: fixed;
+  top: 10px;
+  left: 160px;
+  z-index: 999;
+  background: #222;
+  color: #fff;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  font-size: 20px;
+  text-align: center;
+  line-height: 36px;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
+#helpPanel {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 420px;
+  max-width: 90vw;
+  height: 100%;
+  background: #fff;
+  box-shadow: -4px 0 10px rgba(0,0,0,0.2);
+  overflow-y: auto;
+  z-index: 998;
+  transition: right 0.3s ease;
+}
+
+#helpPanel.open {
+  right: 0;
+}
+
+#helpPanelContent {
+  padding: 20px;
+  font-family: sans-serif;
+  line-height: 1.5;
+}
+
+#closeHelp {
+  float: right;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+
   </style>
 </head>
 <body>
+  <!-- Floating Help Icon -->
+<div id="helpButton" title="Help">
+  <img src="help.svg" width="80px" height="80px">
+</div>
   <details id="notePanel" open>
   <summary id="allNotesSumry">🧱 All Notes (Overview)</summary>
   <div id="noteTiles"></div>
@@ -285,8 +339,85 @@
 </div>
 
 
+<div id="helpPanel">
+  <div id="helpPanelContent">
+    <button id="closeHelp">✖</button>
+    <!-- Help content goes here -->
+    <div id="helpText">
+      <div id="helpText">
+<p>Orchestral Articulation Splitter
+User Guide v1.0</p>
+<h2>🧠 What It Does</h2>
+<p>Orchestral Articulation Splitter transforms expressive MIDI performances into DAW-ready articulation-specific tracks using customizable rules.
 
+✅ Perfect for:
+- Strings, brass, woodwinds, and even keyboard lines
+- Creating multiple tracks mapped to static articulations in your sample library
+- Avoiding manual note filtering, key switch errors, or mouse-based tedium
 
+🎯 This tool accelerates realism by splitting MIDI into parts that are easy to assign to pizzicato, marcato, sustains, legato — whatever your libraries support.</p>
+<h2>🚀 How to Use It</h2>
+<h3>1. Load a MIDI File</h3>
+<p>Click “Load MIDI File” or drag-and-drop a `.mid` file onto the drop zone.</p>
+<h3>2. Choose Segmentation Method</h3>
+<p>You can split notes using:
+<br>
+🟩 Note Length:
+- Use the dual slider to define what counts as Short, Medium, and Long.
+- Visual feedback updates live.
+<br><br>
+🟨 Velocity:
+- Click the “Velocity” tab to split by how hard notes were played.
+- Threshold sliders define what counts as Soft, Medium, or Hard.
+<br><br>
+🟦 CC Modes*:
+- Split by CC1 (Mod Wheel), CC11 (Expression), or any other CC data present in the file.
+<br>
+*coming soon</p>
+<h3>3. Playback & Audition</h3>
+<p>Use the transport controls to preview how your notes are classified.</p>
+<p>Playback Modes:</p>
+<p>🎧 Each classification group plays with a unique sound, giving you audible feedback as well as visual tile coloring.</p>
+<h3>4. Legato Options (Optional)</h3>
+<p>You have three ways to deal with legato notes (overlapping/slurred):</p>
+<h3>5. Exporting Files</h3>
+<p>Each note grouping (Short/Low, Medium, Long/Hi, Legato etc.) is built as a separate MIDI file</p>
+<p>Files are perfectly aligned and retain the original performance timing. Just drop them on the same start location in your DAW.</p>
+<p>You can:</p>
+<p>Rename each file before saving</p>
+<p>Download them individually</p>
+<p>Or download them all at once in a ZIP bundle</p>
+<h2>⚙️ Control Cheat Sheet</h2>
+<h2>💡 Tips / Notes</h2>
+<p>Quantize loosely, or just clean up note starts/ends before importing for best split accuracy.</p>
+<p>Use Auto-Set to get quick usable defaults, then fine-tune by ear. You can also view the note tiles in the top and see an animation as they are synced to playback. Their color will reflect their short/low/medium/long/hi/legato classification as determined by the slider positions.</p>
+<p>Legato detection is on by default, and legato will override any other type of detection. To ignore legato, uncheck the ‘Preserve Legato’ checkbox. This is particularly useful for polyphonic parts like strings, ensembles or pads. To remove it altogether (this will change your note lengths) Click on the ‘Remove Legato Notes’ button. If you load a file and the ‘Legato Analysis’ section is missing, it means there were no overlapping notes in the file.</p>
+<p>Velocity Mode is a great for expressive solo lines with dynamic phrasing.</p>
+<h2>🔐 Activation</h2>
+<p>The app checks for an active license status when it opens.</p>
+<p>Unless its the demo version, if you're offline and haven't previously activated it, the app will be blocked.</p>
+<p>If you have activated it before, the app will run offline for a grace period (default: 7 days).</p>
+<h2>🆘 Support</h2>
+<p>Visit https://midipart.com or use the contact form on the site for support or feature suggestions.</p>
+</div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const helpButton = document.getElementById('helpButton');
+const helpPanel = document.getElementById('helpPanel');
+const closeHelp = document.getElementById('closeHelp');
+
+helpButton.addEventListener('click', () => {
+  helpPanel.classList.add('open');
+});
+
+closeHelp.addEventListener('click', () => {
+  helpPanel.classList.remove('open');
+});
+
+</script>
 
 
 </body>
