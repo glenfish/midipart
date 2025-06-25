@@ -19,19 +19,24 @@
   <meta name="robots" content="none">
   <meta name="robots" content="noindex, nofollow">
   <style>
-    html, body {
-    height: auto!important;
-    min-height: 100%!important;
-    }
-    body {
-    background: #020024!important;
+html, body {
+  height: auto !important;
+  min-height: 100% !important;
+  margin: 0;
+  padding: 0;
+}
+
+body {
   background: repeating-linear-gradient(
     to bottom,
     rgba(39, 9, 121, 0.83) 0px,
     rgba(0, 212, 255, 1) 800px,
     rgba(39, 9, 121, 0.83) 1600px
-  )!important;
+  ) !important;
+  background-repeat: repeat-y;
+  background-size: 100% auto;
 }
+
 
     a {
   text-decoration: none;
