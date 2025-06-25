@@ -9,7 +9,8 @@
   <link defer href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.7.0/nouislider.min.css" rel="stylesheet">
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.7.0/nouislider.min.js"></script>
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
-<script defer src="./js/js.obf4.js"></script>
+<!-- <script defer src="./js/js.obf4.js"></script> -->
+<script defer src="./js/js.js"></script>
   <script defer src="./mididump.js"></script>
   <script defer src="./mpas-dump-wrap.js"></script>
 
@@ -79,11 +80,15 @@ background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(39, 9, 121, 0.83) 
   font-size: 20px;
   cursor: pointer;
 }
-table {
-  width: 460px;
+table#cheatsheet {
+  width:550px; 
+  margin-left:10px; 
+  border:1pt solid #ffffff; 
+
+  border-collapse:collapse;
 }
-table tr {
-  padding: 5px;
+table#cheatsheet tr {
+  padding: 15px;
 }
 #helpPanelContent a {
   text-decoration: underline;
@@ -405,102 +410,102 @@ User Guide v1.0</p>
 <p>Or download them all at once in a ZIP bundle</p>
 <br><br>
 <h2>⚙️ Control Cheat Sheet</h2>
-<table style="width:432pt; margin-left:5.4pt; border:1pt solid #ffffff; padding:0pt; border-collapse:collapse;">
+<table id="cheatsheet">
             <tbody>
                 <tr style="height:20.1pt;">
-                    <td style="width:125.5pt; border-right:1pt solid #ffffff; border-bottom:1pt solid #ffffff; padding:1pt 0.5pt; vertical-align:middle; background-color:#ced7e7;">
-                        <p class="Body"><span style="font-family:Calibri; letter-spacing:normal;">Control</span></p>
+                    <td style="width:125.5pt; border-right:1pt solid #ffffff; border-bottom:1pt solid #ffffff;  vertical-align:middle; background-color:#ced7e7;">
+                        <p class="Body"><span style=" letter-spacing:normal; font-weight: bold;">Control</span></p>
                     </td>
-                    <td style="width:301.45pt; border-left:1pt solid #ffffff; border-bottom:1pt solid #ffffff; padding:1pt 0.5pt; vertical-align:middle; background-color:#ced7e7;">
-                        <p class="Body"><span style="font-family:Calibri; letter-spacing:normal;">Description</span></p>
-                    </td>
-                </tr>
-                <tr style="height:20.1pt;">
-                    <td style="width:125.5pt; border-top:1pt solid #ffffff; border-right:1pt solid #ffffff; border-bottom:1pt solid #ffffff; padding:1pt 0.5pt; vertical-align:middle; background-color:#e8ecf3;">
-                        <p class="Body"><span style="font-family:Calibri; letter-spacing:normal;">Load MIDI File</span></p>
-                    </td>
-                    <td style="width:301.45pt; border-top:1pt solid #ffffff; border-left:1pt solid #ffffff; border-bottom:1pt solid #ffffff; padding:1pt 0.5pt; vertical-align:middle; background-color:#e8ecf3;">
-                        <p class="Body" style="line-height:115%; font-size:13pt;"><span style="line-height:115%; font-family:Calibri; font-size:11pt; letter-spacing:normal;">Upload&nbsp;</span><span style="font-family:Calibri; letter-spacing:normal;">.mid</span><span style="line-height:115%; font-family:Calibri; font-size:11pt; letter-spacing:normal;">&nbsp;file</span></p>
+                    <td style="width:301.45pt; border-left:1pt solid #ffffff; border-bottom:1pt solid #ffffff;  vertical-align:middle; background-color:#ced7e7;">
+                        <p class="Body"><span style=" letter-spacing:normal;font-weight: bold;">Description</span></p>
                     </td>
                 </tr>
                 <tr style="height:20.1pt;">
-                    <td style="width:125.5pt; border-top:1pt solid #ffffff; border-right:1pt solid #ffffff; border-bottom:1pt solid #ffffff; padding:1pt 0.5pt; vertical-align:middle; background-color:#ced7e7;">
-                        <p class="Body"><span style="font-family:Calibri; letter-spacing:normal;">Segmentation Tabs</span></p>
+                    <td style="width:125.5pt; border-top:1pt solid #ffffff; border-right:1pt solid #ffffff; border-bottom:1pt solid #ffffff;  vertical-align:middle; background-color:#e8ecf3;">
+                        <p class="Body"><span style=" letter-spacing:normal;">Load MIDI File</span></p>
                     </td>
-                    <td style="width:301.45pt; border-top:1pt solid #ffffff; border-left:1pt solid #ffffff; border-bottom:1pt solid #ffffff; padding:1pt 0.5pt; vertical-align:middle; background-color:#ced7e7;">
-                        <p class="Body"><span style="font-family:Calibri; letter-spacing:normal;">Choose split method: Length, Velocity, or CC</span></p>
-                    </td>
-                </tr>
-                <tr style="height:20.1pt;">
-                    <td style="width:125.5pt; border-top:1pt solid #ffffff; border-right:1pt solid #ffffff; border-bottom:1pt solid #ffffff; padding:1pt 0.5pt; vertical-align:middle; background-color:#e8ecf3;">
-                        <p class="Body"><span style="font-family:Calibri; letter-spacing:normal;">Threshold Sliders</span></p>
-                    </td>
-                    <td style="width:301.45pt; border-top:1pt solid #ffffff; border-left:1pt solid #ffffff; border-bottom:1pt solid #ffffff; padding:1pt 0.5pt; vertical-align:middle; background-color:#e8ecf3;">
-                        <p class="Body"><span style="font-family:Calibri; letter-spacing:normal;">Define what counts as short/medium/long (or velocity ranges)</span></p>
+                    <td style="width:301.45pt; border-top:1pt solid #ffffff; border-left:1pt solid #ffffff; border-bottom:1pt solid #ffffff;  vertical-align:middle; background-color:#e8ecf3;">
+                        <p class="Body" style="line-height:115%; font-size:13pt;"><span style="line-height:115%;  font-size:11pt; letter-spacing:normal;">Upload&nbsp;</span><span style=" letter-spacing:normal;">.mid</span><span style="line-height:115%;  font-size:11pt; letter-spacing:normal;">&nbsp;file</span></p>
                     </td>
                 </tr>
                 <tr style="height:20.1pt;">
-                    <td style="width:125.5pt; border-top:1pt solid #ffffff; border-right:1pt solid #ffffff; border-bottom:1pt solid #ffffff; padding:1pt 0.5pt; vertical-align:middle; background-color:#ced7e7;">
-                        <p class="Body"><span style="font-family:Calibri; letter-spacing:normal;">Auto-Set Thresholds</span></p>
+                    <td style="width:125.5pt; border-top:1pt solid #ffffff; border-right:1pt solid #ffffff; border-bottom:1pt solid #ffffff;  vertical-align:middle; background-color:#ced7e7;">
+                        <p class="Body"><span style=" letter-spacing:normal;">Segmentation Tabs</span></p>
                     </td>
-                    <td style="width:301.45pt; border-top:1pt solid #ffffff; border-left:1pt solid #ffffff; border-bottom:1pt solid #ffffff; padding:1pt 0.5pt; vertical-align:middle; background-color:#ced7e7;">
-                        <p class="Body"><span style="font-family:Calibri; letter-spacing:normal;">Analyzes the file and auto-configures thresholds</span></p>
-                    </td>
-                </tr>
-                <tr style="height:20.1pt;">
-                    <td style="width:125.5pt; border-top:1pt solid #ffffff; border-right:1pt solid #ffffff; border-bottom:1pt solid #ffffff; padding:1pt 0.5pt; vertical-align:middle; background-color:#e8ecf3;">
-                        <p class="Body"><span style="font-family:Calibri; letter-spacing:normal;">Preserve Legato</span></p>
-                    </td>
-                    <td style="width:301.45pt; border-top:1pt solid #ffffff; border-left:1pt solid #ffffff; border-bottom:1pt solid #ffffff; padding:1pt 0.5pt; vertical-align:middle; background-color:#e8ecf3;">
-                        <p class="Body"><span style="font-family:Calibri; letter-spacing:normal;">Detect overlapping/slurred notes and isolate them</span></p>
+                    <td style="width:301.45pt; border-top:1pt solid #ffffff; border-left:1pt solid #ffffff; border-bottom:1pt solid #ffffff;  vertical-align:middle; background-color:#ced7e7;">
+                        <p class="Body"><span style=" letter-spacing:normal;">Choose split method: Length, Velocity, or CC</span></p>
                     </td>
                 </tr>
                 <tr style="height:20.1pt;">
-                    <td style="width:125.5pt; border-top:1pt solid #ffffff; border-right:1pt solid #ffffff; border-bottom:1pt solid #ffffff; padding:1pt 0.5pt; vertical-align:middle; background-color:#ced7e7;">
-                        <p class="Body"><span style="font-family:Calibri; letter-spacing:normal;">Break Legato</span></p>
+                    <td style="width:125.5pt; border-top:1pt solid #ffffff; border-right:1pt solid #ffffff; border-bottom:1pt solid #ffffff;  vertical-align:middle; background-color:#e8ecf3;">
+                        <p class="Body"><span style=" letter-spacing:normal;">Threshold Sliders</span></p>
                     </td>
-                    <td style="width:301.45pt; border-top:1pt solid #ffffff; border-left:1pt solid #ffffff; border-bottom:1pt solid #ffffff; padding:1pt 0.5pt; vertical-align:middle; background-color:#ced7e7;">
-                        <p class="Body"><span style="font-family:Calibri; letter-spacing:normal;">Crop note ends slightly to prevent overlap</span></p>
-                    </td>
-                </tr>
-                <tr style="height:20.1pt;">
-                    <td style="width:125.5pt; border-top:1pt solid #ffffff; border-right:1pt solid #ffffff; border-bottom:1pt solid #ffffff; padding:1pt 0.5pt; vertical-align:middle; background-color:#e8ecf3;">
-                        <p class="Body"><span style="font-family:Calibri; letter-spacing:normal;">Force Single Voice</span></p>
-                    </td>
-                    <td style="width:301.45pt; border-top:1pt solid #ffffff; border-left:1pt solid #ffffff; border-bottom:1pt solid #ffffff; padding:1pt 0.5pt; vertical-align:middle; background-color:#e8ecf3;">
-                        <p class="Body"><span style="font-family:Calibri; letter-spacing:normal;">Use one preview sound for all notes</span></p>
+                    <td style="width:301.45pt; border-top:1pt solid #ffffff; border-left:1pt solid #ffffff; border-bottom:1pt solid #ffffff;  vertical-align:middle; background-color:#e8ecf3;">
+                        <p class="Body"><span style=" letter-spacing:normal;">Define what counts as short/medium/long (or velocity ranges)</span></p>
                     </td>
                 </tr>
                 <tr style="height:20.1pt;">
-                    <td style="width:125.5pt; border-top:1pt solid #ffffff; border-right:1pt solid #ffffff; border-bottom:1pt solid #ffffff; padding:1pt 0.5pt; vertical-align:middle; background-color:#ced7e7;">
-                        <p class="Body"><span style="font-family:Calibri; letter-spacing:normal;">Polyphonic / Monophonic</span></p>
+                    <td style="width:125.5pt; border-top:1pt solid #ffffff; border-right:1pt solid #ffffff; border-bottom:1pt solid #ffffff;  vertical-align:middle; background-color:#ced7e7;">
+                        <p class="Body"><span style=" letter-spacing:normal;">Auto-Set Thresholds</span></p>
                     </td>
-                    <td style="width:301.45pt; border-top:1pt solid #ffffff; border-left:1pt solid #ffffff; border-bottom:1pt solid #ffffff; padding:1pt 0.5pt; vertical-align:middle; background-color:#ced7e7;">
-                        <p class="Body"><span style="font-family:Calibri; letter-spacing:normal;">Select whether playback handles chords or solo lines</span></p>
-                    </td>
-                </tr>
-                <tr style="height:20.1pt;">
-                    <td style="width:125.5pt; border-top:1pt solid #ffffff; border-right:1pt solid #ffffff; border-bottom:1pt solid #ffffff; padding:1pt 0.5pt; vertical-align:middle; background-color:#e8ecf3;">
-                        <p class="Body"><span style="font-family:Calibri; letter-spacing:normal;">Playback Transport</span></p>
-                    </td>
-                    <td style="width:301.45pt; border-top:1pt solid #ffffff; border-left:1pt solid #ffffff; border-bottom:1pt solid #ffffff; padding:1pt 0.5pt; vertical-align:middle; background-color:#e8ecf3;">
-                        <p class="Body"><span style="font-family:Calibri; letter-spacing:normal;">Play/pause your preview and see note tiles update live</span></p>
+                    <td style="width:301.45pt; border-top:1pt solid #ffffff; border-left:1pt solid #ffffff; border-bottom:1pt solid #ffffff;  vertical-align:middle; background-color:#ced7e7;">
+                        <p class="Body"><span style=" letter-spacing:normal;">Analyzes the file and auto-configures thresholds</span></p>
                     </td>
                 </tr>
                 <tr style="height:20.1pt;">
-                    <td style="width:125.5pt; border-top:1pt solid #ffffff; border-right:1pt solid #ffffff; border-bottom:1pt solid #ffffff; padding:1pt 0.5pt; vertical-align:middle; background-color:#ced7e7;">
-                        <p class="Body"><span style="font-family:Calibri; letter-spacing:normal;">Export Buttons</span></p>
+                    <td style="width:125.5pt; border-top:1pt solid #ffffff; border-right:1pt solid #ffffff; border-bottom:1pt solid #ffffff;  vertical-align:middle; background-color:#e8ecf3;">
+                        <p class="Body"><span style=" letter-spacing:normal;">Preserve Legato</span></p>
                     </td>
-                    <td style="width:301.45pt; border-top:1pt solid #ffffff; border-left:1pt solid #ffffff; border-bottom:1pt solid #ffffff; padding:1pt 0.5pt; vertical-align:middle; background-color:#ced7e7;">
-                        <p class="Body" style="line-height:115%; font-size:13pt;"><span style="line-height:115%; font-family:Calibri; font-size:11pt; letter-spacing:normal;">Save individual or bundled classified tracks as&nbsp;</span><span style="font-family:Calibri; letter-spacing:normal;">.mid</span><span style="line-height:115%; font-family:Calibri; font-size:11pt; letter-spacing:normal;">&nbsp;files</span></p>
+                    <td style="width:301.45pt; border-top:1pt solid #ffffff; border-left:1pt solid #ffffff; border-bottom:1pt solid #ffffff;  vertical-align:middle; background-color:#e8ecf3;">
+                        <p class="Body"><span style=" letter-spacing:normal;">Detect overlapping/slurred notes and isolate them</span></p>
                     </td>
                 </tr>
                 <tr style="height:20.1pt;">
-                    <td style="width:125.5pt; border-top:1pt solid #ffffff; border-right:1pt solid #ffffff; padding:1pt 0.5pt; vertical-align:middle; background-color:#e8ecf3;">
-                        <p class="Body"><span style="font-family:Calibri; letter-spacing:normal;">ZIP Download</span></p>
+                    <td style="width:125.5pt; border-top:1pt solid #ffffff; border-right:1pt solid #ffffff; border-bottom:1pt solid #ffffff;  vertical-align:middle; background-color:#ced7e7;">
+                        <p class="Body"><span style=" letter-spacing:normal;">Break Legato</span></p>
                     </td>
-                    <td style="width:301.45pt; border-top:1pt solid #ffffff; border-left:1pt solid #ffffff; padding:1pt 0.5pt; vertical-align:middle; background-color:#e8ecf3;">
-                        <p class="Body"><span style="font-family:Calibri; letter-spacing:normal;">Save all tracks in one click</span></p>
+                    <td style="width:301.45pt; border-top:1pt solid #ffffff; border-left:1pt solid #ffffff; border-bottom:1pt solid #ffffff;  vertical-align:middle; background-color:#ced7e7;">
+                        <p class="Body"><span style=" letter-spacing:normal;">Crop note ends slightly to prevent overlap</span></p>
+                    </td>
+                </tr>
+                <tr style="height:20.1pt;">
+                    <td style="width:125.5pt; border-top:1pt solid #ffffff; border-right:1pt solid #ffffff; border-bottom:1pt solid #ffffff;  vertical-align:middle; background-color:#e8ecf3;">
+                        <p class="Body"><span style=" letter-spacing:normal;">Force Single Voice</span></p>
+                    </td>
+                    <td style="width:301.45pt; border-top:1pt solid #ffffff; border-left:1pt solid #ffffff; border-bottom:1pt solid #ffffff;  vertical-align:middle; background-color:#e8ecf3;">
+                        <p class="Body"><span style=" letter-spacing:normal;">Use one preview sound for all notes</span></p>
+                    </td>
+                </tr>
+                <tr style="height:20.1pt;">
+                    <td style="width:125.5pt; border-top:1pt solid #ffffff; border-right:1pt solid #ffffff; border-bottom:1pt solid #ffffff;  vertical-align:middle; background-color:#ced7e7;">
+                        <p class="Body"><span style=" letter-spacing:normal;">Polyphonic / Monophonic</span></p>
+                    </td>
+                    <td style="width:301.45pt; border-top:1pt solid #ffffff; border-left:1pt solid #ffffff; border-bottom:1pt solid #ffffff;  vertical-align:middle; background-color:#ced7e7;">
+                        <p class="Body"><span style=" letter-spacing:normal;">Select whether playback handles chords or solo lines</span></p>
+                    </td>
+                </tr>
+                <tr style="height:20.1pt;">
+                    <td style="width:125.5pt; border-top:1pt solid #ffffff; border-right:1pt solid #ffffff; border-bottom:1pt solid #ffffff;  vertical-align:middle; background-color:#e8ecf3;">
+                        <p class="Body"><span style=" letter-spacing:normal;">Playback Transport</span></p>
+                    </td>
+                    <td style="width:301.45pt; border-top:1pt solid #ffffff; border-left:1pt solid #ffffff; border-bottom:1pt solid #ffffff;  vertical-align:middle; background-color:#e8ecf3;">
+                        <p class="Body"><span style=" letter-spacing:normal;">Play/pause your preview and see note tiles update live</span></p>
+                    </td>
+                </tr>
+                <tr style="height:20.1pt;">
+                    <td style="width:125.5pt; border-top:1pt solid #ffffff; border-right:1pt solid #ffffff; border-bottom:1pt solid #ffffff;  vertical-align:middle; background-color:#ced7e7;">
+                        <p class="Body"><span style=" letter-spacing:normal;">Export Buttons</span></p>
+                    </td>
+                    <td style="width:301.45pt; border-top:1pt solid #ffffff; border-left:1pt solid #ffffff; border-bottom:1pt solid #ffffff;  vertical-align:middle; background-color:#ced7e7;">
+                        <p class="Body" style="line-height:115%; font-size:13pt;"><span style="line-height:115%;  font-size:11pt; letter-spacing:normal;">Save individual or bundled classified tracks as&nbsp;</span><span style=" letter-spacing:normal;">.mid</span><span style="line-height:115%;  font-size:11pt; letter-spacing:normal;">&nbsp;files</span></p>
+                    </td>
+                </tr>
+                <tr style="height:20.1pt;">
+                    <td style="width:125.5pt; border-top:1pt solid #ffffff; border-right:1pt solid #ffffff;  vertical-align:middle; background-color:#e8ecf3;">
+                        <p class="Body"><span style=" letter-spacing:normal;">ZIP Download</span></p>
+                    </td>
+                    <td style="width:301.45pt; border-top:1pt solid #ffffff; border-left:1pt solid #ffffff;  vertical-align:middle; background-color:#e8ecf3;">
+                        <p class="Body"><span style=" letter-spacing:normal;">Save all tracks in one click</span></p>
                     </td>
                 </tr>
             </tbody>
