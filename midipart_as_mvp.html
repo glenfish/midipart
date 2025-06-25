@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MIDIpart.com - Articulation Splitter</title>
+    <!-- <script defer src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js"></script> -->
+  <script defer src="https://cdn.jsdelivr.net/npm/@tonejs/midi@2.0.27/build/Midi.min.js"></script>
+  <link defer href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.7.0/nouislider.min.css" rel="stylesheet">
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.7.0/nouislider.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script defer src="./js/js.obf4.js"></script>
+  <script defer src="./midi-dump/mididump.js"></script>
+  <script defer src="mpas-dump-wrapper.js"></script>
+
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.7.0/nouislider.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <meta name="robots" content="none">
+  <meta name="robots" content="noindex, nofollow">
+  
+</head>
+<body>
+  <details id="notePanel" open>
+  <summary id="allNotesSumry">🧱 All Notes (Overview)</summary>
+  <div id="noteTiles"></div>
+</details>
+
+    <div id="zoomWrapper">
+    
+  
+  <div id="zoomControls">
+    <button id="zoomOut">−</button>
+    <button id="zoomIn">＋</button>
+  </div>
+  <div class="container">
+    <div id="volume-control" style="visibility: hidden;">
+        <span class="prevent-select">Volume</span>
+        <input type="range" id="volSlider" min="-24" max="0" step="1" value="-12" style="width: 100px;">
+    </div>
+    <div id="logo">
+        <!-- <img src="mp-icon-2.svg" height="80px" /><br> -->
+        
+    </div>
+    <button id="initialize">initialize</button>
+      <div id="headline">
+    <h1 class="prevent-select">Articulation Splitter</h1>
+    <span class="prevent-select subheader">Export multiple part articulations from any midi file</span>
+    </div>
+    <div id="libraryStatus" class="library-status library-loading">
+      <!-- 📚 Loading libraries... -->
+    </div>
+    <div class="top-panel-wrapper">
+  <button id="toggleTopPanel" class="collapse-btn">🔼</button>
+    <div id="topPanel">
+      
+
+    <div class="upload-section">
+      Drag n Drop a midi file on this panel to open or ...<br><br><br>
+      <label for="midiFile" id="midiFileLabel" class="prevent-select">
+        📁 Load MIDI File
+      </label>
+      <input type="file" id="midiFile" accept=".mid,.midi" style="display:none" />
+      <p style="margin-top: 1rem; color: #718096;" class="prevent-select">
+        <br>
+        
+        
+        Filter By Length: Export up to 4 midi parts: shorts / mediums / longs / legato<br><br>
+        Filter By Velocity: Export up to 3 midi parts: slows / mediums / highs
+      </p>
+        <div id="currentFileName" style="text-align: center; margin-top: 1rem; font-weight: bold; color: #4a5568;">
+        <!-- Filename will appear here -->
+        </div>
+        <div id="repeatFileWarning" style=" display:none; margin-top: 0.5rem; color: #e53e3e; font-weight: bold;">
+  ⚠️ You've loaded this file before.
+</div>
+        
+
+        </div>
+    </div>
+    </div>
+    
+
+    <div class="controls" id="controls" style="display: none;">
+     
+      <button id="playBtn" class="play-btn prevent-select">▶️ Play MIDI</button>
+      <button id="stopBtn" class="stop-btn prevent-select" disabled>⏹️ Stop</button><br>
+      
+    </div>
+    <div id="aux-controls" style="visibility: hidden;">
+       <label class="polyphonicToggle"><input type="checkbox" id="polyphonicToggle" checked/>Polyphonic</label>
+       
+    </div>
+<div id="aux-controls-2" style="visibility: hidden;">
+       <label style="display:block; " id="forceLongVoiceWrapper" class="forceLongVoiceWrapper">
+      <input type="checkbox" id="forceLongVoice" />Force Single Voice
+    </label>
+       
+    </div>
+
+    <details id="legatoDetails" style="display: none; margin-top:40px">
+    <summary>🎶 Legato Analysis</summary>
+    <div id="legatoInfo"></div>
+    <div style="display: flex;">
+    <input type="checkbox" id="preserveLegato" />
+    <label class="preserveLegato">Preserve legato (unchecking this treats notes as sustains)</label>
+  </div><br>Shorten all note lengths so they will no longer overlap -> 
+    <button id="removeLegatoBtn" class="danger-btn">🧨 Remove Legato Notes </button>
+  </details>
+    
+
+    
+
+    <div class="thresholds" id="thresholds" style="display: none;">
+        
+
+         <!-- 🔀 Segmentation mode selector -->
+        <div id="segmentModeSelectorWrapper" style="display:flex;align-items:center;gap:.6rem;margin-bottom:.8rem">
+          <label for="segmentMode" class="prevent-select">🔀 Segment Notes By:</label>
+          <select id="segmentMode">
+            <option value="length">Note Length</option>
+            <option value="velocity">Velocity</option>
+            <option value="cc" disabled>Controller (CC)</option>
+          </select>
+        </div>
+
+        <div id="thresholdUnitsContainer" style="display: flex; align-items: center; gap: 1rem; margin-bottom: 0.5rem;">
+        <label for="thresholdUnits" class="prevent-select">🕒 Length Units:</label>
+        <select id="thresholdUnits">
+            <option value="ticks">Ticks</option>
+            <option value="ms">Milliseconds</option>
+        </select>
+        </div>
+
+        
+
+        <!-- 🎚 CC selector (appears only in CC mode) -->
+        <div id="ccSelectorWrapper" style="display:none;margin-bottom:.8rem">
+          <label for="ccSelector" class="prevent-select">🎚 Select CC:</label>
+          <select id="ccSelector"></select>
+        </div>
+
+      <div class="legend prevent-select">Thresholds</div>
+      <div id="slider"></div>
+      <div class="threshold-info">
+        <span style="color: #f6ad55;" id="shortLabel">⚡ Short</span> &lt; <span id="shortVal">120</span> | 
+        <span style="color: #4299e1;" id="mediumLabel">🎵 Medium</span> &lt; <span id="mediumVal">240</span> | 
+        <span style="color: #48bb78;" id="longLabel">🎶 Long</span> ≥ <span id="longVal">240</span><br><br>
+        <button id="autoSetThresholds" class="export-btn">⚙️ Auto-Set Thresholds</button>
+      </div>
+       
+    </div>
+
+
+    <details id="exportAccordion">
+    <summary style="
+            cursor:pointer;
+            font-weight:bold;
+            font-size:1.1rem;
+            color:#4a5568;
+            padding:.6rem 1rem;
+            border-radius:8px;
+            background:linear-gradient(135deg,#4299e1,#3182ce);
+            color:#fff;
+            user-select:none;
+            
+            ">
+        📤 Export Split Files
+    </summary>
+    <div class="export-section" id="exportSection" style="display: none;">
+      <h3 class="prevent-select">📤 Export MIDI files</h3>
+     <div style="margin-bottom: 1rem;">
+        <label for="filenameInput" style="font-weight: bold; color: #4a5568;" class="prevent-select">💾 Output File Name:</label><br>
+        <input id="filenameInput" type="text" placeholder="e.g. legato_take3" style="margin-top: 0.5rem; padding: 0.5rem; width: 60%; border-radius: 8px; border: 1px solid #ccc;">
+        <div id="filenamePreview" class="prevent-select" style="margin-top: 0.5rem; font-size: 0.9rem; color: #718096;">
+            Will export as: <span id="filePreviewValue">yourfile-short.mid</span>
+        </div>
+        </div>
+    
+
+        <button id="analyzeDump" class="export-btn prevent-select">🧠 Run MIDI Dump</button>
+
+      <button id="exportShort" class="export-btn prevent-select">⬇️ Export Shorts</button>
+      <button id="exportMedium" class="export-btn prevent-select">⬇️ Export Mediums</button>
+      <button id="exportLong" class="export-btn prevent-select">⬇️ Export Longs</button>
+      <button id="exportLegato" class="export-btn prevent-select" style="display:none">⬇️ Export Legatos</button>
+      <div id="zipContainer">
+        <label class="zipExportToggle">
+          <input type="checkbox" id="zipExportToggle" />
+          📦 Zip It
+        </label>
+        <button id="exportZipBtn" style="display: none;">⬇️ Export All as ZIP</button>
+      </div>
+    </div>
+  
+    
+  
+    </div>
+    </details>
+
+    
+
+
+    <div id="output" style=""></div>
+    <div id='secret-trigger' title='🎶 Curious, arent you?'></div>
+  </div>
+
+
+ 
+
+  
+  <div id="toast" style="
+  position: fixed;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #2d3748;
+  color: white;
+  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  font-size: 0.95rem;
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+"></div>
+<!-- --------- -->
+</div>
+<!-- zoom wrapper end -->
+
+
+<!-- ─────── confirmation modal ─────── -->
+<div id="confirmBackdrop">
+  <div id="confirmBox">
+    <p id="confirmMessage"></p>
+
+    <div class="btnRow">
+      <button id="confirmOk">Yes, continue</button>
+      <button id="confirmCancel">Cancel</button>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Track-picker modal -->
+<div id="trackModal" class="modal hidden">
+  <div class="modal-box">
+    <h3>Select a track to load</h3>
+    <div id="trackButtons"></div>
+  </div>
+</div>
+
+
+
+
+
+
+</body>
+</html>
