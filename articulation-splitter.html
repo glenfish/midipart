@@ -540,6 +540,13 @@ closeHelp.addEventListener('click', () => {
   helpButton.style.display = "block";
 });
 
+document.addEventListener('click', (e) => {
+  const isClickInside = helpPanel.contains(e.target) || helpButton.contains(e.target);
+  if (!isClickInside && helpPanel.classList.contains('open')) {
+    helpPanel.classList.remove('open');
+  }
+});
+
 </script>
 
 
