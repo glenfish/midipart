@@ -678,8 +678,7 @@
 
  .collapse-btn {
      position: relative !important;
-     top: -40px !important;
-     right: 10px;
+     top: -20px !important;
      border: none;
      background: #ccc;
      padding: 4px 10px;
