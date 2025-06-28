@@ -125,6 +125,21 @@ table#cheatsheet {
   margin: auto;
 }
 
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
+  overflow: hidden;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
 }
 
 
@@ -401,9 +416,13 @@ table#cheatsheet {
     <div id="helpText">
       <div id="helpText">
 <p style="font-weight: bold; font-size: 1.2rem;">Orchestral Articulation Splitter
-User Guide v1.0</p>
-<a href="https://youtu.be/LerG8UNpMK0"  target="_blank">Watch Video</a><br>
-<a href="./docs/Orchestral_Articulation_Splitter_User_Guide.pdf" download="./docs/Orchestral_Articulation_Splitter_User_Guide.pdf" target="_blank">Click to download PDF</a><br>
+<br>User Guide v1.0</p>
+
+
+<div class="video-container">
+<iframe id="yt-iframe" width="560" height="315" src="https://www.youtube.com/embed/LerG8UNpMK0?si=DMMvMva6j2qs1suL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+<br><a href="./docs/Orchestral_Articulation_Splitter_User_Guide.pdf" download="./docs/Orchestral_Articulation_Splitter_User_Guide.pdf" target="_blank">Click to download PDF</a><br>
 <h2>🧠 What It Does</h2>
 <p>Orchestral Articulation Splitter transforms expressive MIDI performances into DAW-ready articulation-specific tracks using customizable rules. Its smart threshold splitter helps you quickly carve up your parts into multiple midi files - all synced and retaining your original performance data. Stop clicking like a caveman and stay in the creative zone.
 <br><br>
