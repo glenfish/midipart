@@ -37,11 +37,12 @@
     }
 
     .iframe-wrapper {
-      position: relative;
       width: 100%;
-      padding-top: 150%; /* Adjust height ratio */
+      height: 700px; /* or whatever fits your layout */
+      position: relative;
       overflow: hidden;
     }
+
 
     .iframe-wrapper iframe {
       position: absolute;
@@ -54,7 +55,7 @@
 
     @media (max-width: 600px) {
       .iframe-wrapper {
-        padding-top: 200%;
+        height: 1000px; /* Or shorter, if content fits */
       }
 
       .tab-bar button {
