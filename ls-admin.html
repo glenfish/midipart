@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Scout</title>
+    <meta name="robots" content="none">
+  <meta name="robots" content="noindex, nofollow">
+    <style>
+  .responsive-iframe-container {
+    position: relative;
+    width: 100%;
+    padding-top: 150%; /* Aspect ratio — tweak as needed */
+    overflow: hidden;
+    border-radius: 12px;
+  }
+
+  .responsive-iframe-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+  iframe {
+  -webkit-overflow-scrolling: touch;
+  overflow-y: auto;
+}
+@media (max-width: 480px) {
+  .responsive-iframe-container {
+    padding-top: 200%; /* Adjust for mobile view if needed */
+  }
+}
+
+
+</style>
+
+<div class="responsive-iframe-container">
+  <iframe 
+    src="https://libscout.replit.app/admin" 
+    title="Library Scout"
+    loading="lazy"
+    allowfullscreen
+  ></iframe>
+</div>
+
+</head>
+<body>
+
+    <iframe 
+  src="https://libscout.replit.app" 
+  width="100%" 
+  height="100vh" 
+  style="border: none;" 
+></iframe>
+
+    
+</body>
+</html>
